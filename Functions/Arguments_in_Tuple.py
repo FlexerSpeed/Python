@@ -21,7 +21,6 @@ def get_post_info(**person):
 info = get_post_info(name='Michael', post_id=278)
 print(info)
 
-
 def get_newpost_info(name, post_id): # Иcпользование аргументов с ключевыми словами
     info = f"{name} wrote {post_id} posts" 
     return info
@@ -39,7 +38,7 @@ from datetime import date # datatime стандартный модуль Python 
 # класс date испоьзуется только для работы с датой (без времени)
 # класс date позволяет работать напрямую без написания datetime.data без написания каждый раз для использования
 def get_date():
-    return date.today().strftime()
+    return date.today().strftime('%A') 
 print(get_date())
 
 def create_new_post (post, week_day=get_date()): # установление функции как параментр по умолчанию
@@ -77,3 +76,12 @@ def update_car_info(**car): # Создание словаря через ком�
     return car
 
 print(update_car_info(brand='BMW', price=10000)) #Передача ключ значение в словарь функции
+
+# --- Task 3 ---
+# F strings
+person = "John"
+employee = True
+sallary = 3500
+family = ['wife', 'son', 'daughter']
+
+print(f'{person} has a job ({employee}) and hi has {sallary} per mounths. John family are {family}')

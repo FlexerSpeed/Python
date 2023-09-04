@@ -7,9 +7,20 @@
 def mult(a, b):  # Классическая функция
     return a * b
 
-lambda_mult = lambda a, b: a * b # Вариант лямбда функции
+
+def lambda_mult(a, b): return a * b  # Вариант лямбда функции
+
 
 print(lambda_mult(5, 2))
 
-# --- замыкания функций (closure)??????
 
+def greeting(greet):
+    return lambda name: f'{greet}, {name}!'
+
+
+# Записываем значение для внешней функции в переменную
+morning_greet = greeting('Good morning')
+print(morning_greet('Michael'))  # Используем внутреннюю лямба функцию
+
+
+# --- замыкания функций (closure)??????

@@ -7,18 +7,31 @@
 # Интерируемость. При помощи FOR можно обращаться к ключам-значениям (key: value)
 
 
-my_motorbike = {
+motorbike = {
     'brand': 'Ducati',
     'price': 25000,
-    'engine_vol': 1.2
+    'engine_vol': 1.2,
+    'ditails': ['motor', 'viels'],
+    'key1': {'nested_key': {'subnestkey': 'value'}}
 }
 
-my_motorbike['price'] = 7000  # изменение значений
-my_motorbike['is_new'] = True  # добавление элементов
-# del my_motorbike['engine_vol']  # удаление ключа из словаря
-
+motorbike['brand']  # обращение к значению(value) ключа
+motorbike['price'] = 7000  # изменение значений
+motorbike['is_new'] = True  # добавление элементов
+del motorbike['engine_vol']  # удаление ключа из словаря
 key_for_dic = 'brand'  # присвоение ключа переменной
-my_motorbike[key_for_dic] = 'BMW'
+motorbike.keys()  # Вызов всех ключей словаря
+motorbike.items()  # Вызов всех значений словаря
+
+# Мы можем пользоваться мат операторами обращаясь к значениям ключей:
+motorbike['price'] -= 2500
+
+# если в значении лист мы также можем обращаться чезе ключ к индексу значения в листе:
+motorbike['ditails'][0]
+# так мы можем обращаться к значениям во вложенных ловарях:
+motorbike['key1']['nested_key']['subnestkey']
+
+motorbike[key_for_dic] = 'BMW'
 # print(len(my_motorbike)) #получение колва клбчей в словаре
 # print(my_motorbike.get('model', 1))  # предпочтительный метод запроса к ключам. (1) знаение на случай отсуцтвия ключа
 
@@ -39,10 +52,6 @@ union_dic = my_motorbike | my_disk
 my_list = [('model', 'Samsung'), ('Availeble', True)]
 my_dic = dict(my_list)
 
-print(my_dic)
-
-
-
 
 # ---Practical Task 2---
 team_one = {
@@ -62,7 +71,7 @@ team_tre = {
     'sale assistant 3': 'Imran Indi',
     'stockroomer': 'Andre Bill'
 }
-total_emploees = team_one | team_two| team_tre
+total_emploees = team_one | team_two | team_tre
 print(total_emploees)
 
 for key in total_emploees:

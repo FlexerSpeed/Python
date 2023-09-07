@@ -54,3 +54,17 @@ user_info(**user_profile)
 user_info(user_profile['name'], user_profile['age'])
 # Вариант с именованными аргументами
 user_info(age=user_profile['age'], name=user_profile['name'])
+
+
+# --- Task ---
+
+dictionarys_in_list = [{'country': 'Ukraine', 'capital': 'Kuiv'}, {
+    'country': 'Italy', 'capital': 'Rome'}, {'country': 'Ireland', 'capital': 'Dublin'}]
+country1, country2, country3 = dictionarys_in_list
+
+
+def dict_unpack(country, capital):
+    return print(f'{country} has capital {capital}')
+
+
+dict_unpack(**country3)

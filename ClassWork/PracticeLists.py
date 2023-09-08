@@ -1,13 +1,14 @@
-todo_list1 = []
+todo_list = []
 
 while True:
     persons_task = input(
-        'Enter a task for your to-do list. Press <enter> when done: ')
+        'Enter the task what you need to-do. Press <enter> when done: ')
     if persons_task:
-        todo_list1.append(persons_task)
+        todo_list.append(persons_task)
     else:
         break
 
 print('Your To-Do List:\n', ('_' * 20))
-for i, task in enumerate(todo_list1, start=1):
+
+for i, task in enumerate(todo_list, start=1):
     print(f'{i}: {task}')

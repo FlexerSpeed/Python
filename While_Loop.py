@@ -15,3 +15,30 @@ while True:
         break  # Cпособ принудительного прирывания цикла
 
 '''
+'''
+random_num = random.randint(1, 5)
+
+while True:
+    user_number = int(input('Try to huess number: '))
+    if user_number != random_num:
+        print('Try again')
+        continue
+    print('Congratilation!', random_num)
+    break
+'''
+
+# --- Practice Task ---
+while True:
+    number_one = int(input('Enter first number: '))
+    number_two = int(input('Enter second number: '))
+
+    if number_two == 0:
+        print('Cannot devide by 0. Please enter a non-zero number')
+        continue
+
+    devision_nums_result = float(number_one / number_two)
+    print(devision_nums_result)
+
+    question_to_continue = input('Do you want to continue? Yes/No: ')
+    if question_to_continue.lower() != 'yes':
+        break

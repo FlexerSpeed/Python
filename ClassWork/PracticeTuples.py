@@ -1,5 +1,6 @@
 airports = [('O\'Hare International Air', 'ORD'),
-            ('Los Angeles Airpor', 'LAX'), (' Dallas/Fort Worth Airport', 'DFW')]
+            ('Los Angeles Airpor', 'LAX'),
+            (' Dallas/Fort Worth Airport', 'DFW')]
 
 for airport in airports:
     name_airport = airport[0]

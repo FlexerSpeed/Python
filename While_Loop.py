@@ -29,10 +29,15 @@ while True:
 
 # --- Practice Task ---
 while True:
-    number_one = int(input('Enter first number: '))
-    number_two = int(input('Enter second number: '))
-
-    if number_two == 0:
+    try:
+        number_one = float(input('Enter first number: '))
+        number_two = float(input('Enter second number: '))
+    except ValueError as e:
+        print(e)
+        print('You have to enter numbers!')
+        continue
+    except ZeroDivisionError as e:
+        print(e)
         print('Cannot devide by 0. Please enter a non-zero number')
         continue
 

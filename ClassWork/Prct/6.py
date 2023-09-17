@@ -12,3 +12,7 @@ def IsPrime(number):
 for i in range(20):
     if IsPrime(i + 1):
         print(i, end=" ")
+
+"""
+def 
+"""

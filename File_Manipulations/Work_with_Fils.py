@@ -31,7 +31,3 @@ cwd = Path('/Software_Development') / 'Python' / \
 # print(cwd.mkdir())  # Метод для создания папки
 
 # print(cwd.rmdir())  # Метод для удаления папки
-
-
-with open('text.txt') as test_file:
-    print(test_file.read())

@@ -16,6 +16,7 @@ create_folder(folder_name, folder_way)
 
 
 file_path = './File_Manipulations/Task_folder/'
+
 with open(Path(file_path) / 'file1.txt', 'w') as first_file:
     first_file.write('First string\n')
     first_file.write('Second string\n')
@@ -25,14 +26,16 @@ with open(Path(file_path) / 'file1.txt') as first_file:
     print(first_file.read())
 
 with open(Path(file_path) / 'file2.txt', 'w') as second_file:
-    second_file.write('First string\n')
-    second_file.write('Second string\n')
-    second_file.write('Third string\n')
+    lines = ['First line', 'Second line', 'Third line']
+    for line in lines:
+        second_file.write(f'{line}\n')
 
 with open(Path(file_path) / 'file2.txt') as second_file:
     lines = second_file.readlines()
     for line in lines:
         print(line)
+
+# Функция для удаления
 
 
 def delet_file(file_name, file_way):
@@ -41,3 +44,7 @@ def delet_file(file_name, file_way):
         file_path.unlink()
     else:
         print(f'{file_name} in {file_way} isnt exist')
+
+
+first_file = Path(file_path) / 'file1.txt'
+first_file.unlink()

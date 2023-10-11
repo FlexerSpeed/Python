@@ -16,6 +16,9 @@ def check_password(password):
 
 
 # SECOND WAY
+errors_list = ["Password must have 8 symbolse", "Password must have lovercase leter", "Password must have appercase leter",
+               "Password must have number", "Password must have symbol", "No white spaces!"]
+
 
 def check_passwod_way2(password):
     # Проверка длинны выполняется таким путем
@@ -31,24 +34,48 @@ def check_passwod_way2(password):
     # * обозначает что /$ может повторяться бесеонечное кол-во раз до окончания строки
 
     if not re.fullmatch(no_whitespace_pattern, password):
-        return (False, "No white spaces!")
+        return (False, print(errors_list[0]))
 
     if not re.fullmatch(password_len_pattern, password):
-        return (False, "Password must have 8 symbolse")
+        return (False, print(errors_list[1]))
 
     if not re.fullmatch(lowercase_pattern, password):
-        return (False, "Password must have lovercase leter")
+        return (False, print(errors_list[2]))
 
     if not re.fullmatch(appercase_pattern, password):
-        return (False, "Password must have appercase leter")
+        return (False, print(errors_list[3]))
 
     if not re.fullmatch(numbers_pattern, password):
-        return (False, "Password must have number")
+        return (False, print(errors_list[4]))
 
     if not re.fullmatch(symbols_pattern, password):
-        return (False, "Password must have symbol")
+        return (False, print(errors_list[5]))
 
     return (True, 'Password exepted!')
 
 
-print(check_passwod_way2('Absbdsdsds12@   '))
+# THIRD WAY
+
+# Создаём лист кортежей с паттернами и ошибками для них
+def check_passwod_way2(password):
+    patterns = [(r"\S{8,}", errors_list[0]),
+                (r"^.*[a-z]+.*$", errors_list[1]),
+                (r"^.*[A-Z]+.*$", errors_list[2]),
+                (r"^.*[0-9]+.*$", errors_list[3]),
+                (r"^.*[!@#$%]+.*", errors_list[4]),
+                (r"^\S*$", errors_list[5])]
+
+# Прогоняем пароль через проверки при помощи цикла
+    for pattern, error in patterns:
+        if not re.search(pattern, password):
+            return False, error
+    return True, 'Password exepted!'
+# На выходе функция возвращает два значения
+
+
+# Присваимаем двум переменным два значения которые возвращает фонкция
+result, message = check_passwod_way2("Sdsadasdasdasdas9!")
+if result:
+    print(message)
+else:
+    print("Password not excepted:", message)
